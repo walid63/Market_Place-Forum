@@ -1,0 +1,17 @@
+{
+    "name": "pc/app",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "walid.kadache63",
+            "email": "mkaderd@gmail.com"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^6.3"
+    }
+}

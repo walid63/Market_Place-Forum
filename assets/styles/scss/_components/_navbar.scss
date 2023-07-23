@@ -1,0 +1,29 @@
+nav.navbar
+{
+    padding-bottom: 20px;
+    div.navBlock
+    {
+        background-color: rgb(94, 94, 94);
+        
+        a.navbar-brand
+        {
+            color: white;
+        }
+
+        button.navbar-toggler
+        {
+            span.navbar-toggler-icon{}
+        }
+        div.collapse
+        {
+            ul.navbar-nav
+            {
+                li.nav-item{
+                    a.nav-link{
+                        color:white
+                    }
+                }
+            }
+        }
+    }
+}
