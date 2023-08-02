@@ -1,13 +1,28 @@
-
-
 ?>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 &nbsp;
-<header>
-   <h1 class="text-center">home page</h1>
-   <!-- Ajoutez ici d'autres éléments de votre header si nécessaire -->
-   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<div class="homePage">
+    <header>
+        <h1 class="text-center"></h1>
+        <!-- Ajoutez ici d'autres éléments de votre header si nécessaire -->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -17,10 +32,10 @@
             <div class="carousel-inner">
                 <!-- Diapositive 1 -->
                 <div class="carousel-item active">
-                    <img src="../../../assets/images/carrousel/179490466-heureux-homme-asiatique-vérifiant-la-commande-et-préparant-le-produit-pour-le-client-à-la-maison.webp" class="d-block w-100" alt="Image 1">
+                    <img src="../../../assets/images/carrousel/homme-devant-pc-ecoutant-podcast.jpg" class="d-block w-100" alt="Image 1">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3>Titre de l'image 1</h3>
-                        <p>Description de l'image 1</p>
+                        <h1 class="text-start">Market Place Forum</h1>
+                        <p> </p>
                     </div>
                 </div>
 
@@ -52,61 +67,75 @@
                 <span class="sr-only">Suivant</span>
             </a>
         </div>
+    </header>
 
-        <!-- Le reste du contenu de la page ici -->
-
-
-</header>
-
-&nbsp;
+    &nbsp;
 
 
-<div class="container-fluid">
-   <div class="row">
-      <div class="col-lg-3 ">
-         <div class="sidebar">
-            <?php
-            include './src/Controllers/SideBarController.php';
-            $sidebarController = new SidebarController();
-            $sidebarController->index();
-            ?>
-         </div>
-      </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 ">
+                <div class="sidebar">
+                    <?php
+                    include './src/Controllers/SideBarController.php';
+                    $sidebarController = new SidebarController();
+                    $sidebarController->_home();
+                    ?>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="homeCardLeft card">
+                    <h2 class="text-center">Forum</h2>
+                    <?php foreach ($posts as $post) : ?>
+                        <div class="card">
+                            <h3 class="homeCardLeftText"><?php echo $post->getTitle(); ?></h3>
+                            <p class="homeCardLeftText"><?php echo 'Publication:  ' . $post->getContent(); ?></p>
+                            <p class="homeCardLeftText"><?php echo 'Mise en ligne:  ' . $post->getCreated_at(); ?></p>
+                            <p class="homeCardLeftText"> <?php echo 'Par: ' . $userPost->getUsername(); ?></p>
+                            <p class="homeCardLeftText"><?php echo '0 j\'aime'; ?></p>
+                        </div>
+                      <?php if(isset($_SESSION['user'])) { ?>
+                        <div class="control-publication">
+                            <?php if (isset($_SESSION['user'])) : echo "<a class='postBtn' href=''>Comenter</a>";
+                            else : endif; ?>
+                            &nbsp;| &nbsp;
+                            <?php if (isset($_SESSION['user'])) : echo "<a class='postBtn formBtn' href=''>J'aime</a>";
+                            else : endif; ?>
+                            &nbsp;| &nbsp;
+                            <?php if (isset($_SESSION['user'])) : echo "<a class='postBtn formBtn' href=''>Voir les commentaire (0)</a>";
+                            else : endif; ?>
+                            &nbsp;
+                        </div>
+                    <?php }  endforeach ; ?>
+
+                </div>
+            </div>
+            &nbsp;
 
 
+            <div class="col-lg-4">
+                <div class="homeCardRight card">
+                    <h2 class="text-center">Second-hand sales </h2>
+                    <?php foreach ($annonces as $annonce) : ?>
+                        <div>
+                            <div class="container">
+                                <h3 class="homeCardLeftText"><?php echo $annonce->getTitle(); ?></h3>
+                                <p class="homeCardLeftText"><?php echo $annonce->getDescription(); ?></p>
+                                <p class="homeCardLeftText"><?php echo 'Prix: ' . $annonce->getPrice(); ?></p>
+                                <p class="homeCardLeftText"><?php echo 'Mise en ligne: ' . $annonce->getCreated_at(); ?></p>
+                                <p class="homeCardLeftText"> <?php echo 'Par: ' . $userAnnonce->getUsername() ?></p>
+                                <?php if (isset($_SESSION['user'])) : echo "<button class='formBtn'>Contacter le vendeur</button>";
+                                else : endif; ?>
+                            </div>
+                        </div>
+                        <hr class="homeAnnonceSeparator">
+                        &nbsp;
+                    <?php endforeach; ?>
+                    <a href="#boutique">Explorer la boutique</a>
+                </div>
+            </div>
 
-
-
-
-      <div class="col-lg-4">
-         <div class="homeCardLeft card">
-            <h2 class="text-center">Forum</h2>
-            <ul class="forum-posts">
-               <!-- Inclure ici les messages récents ou populaires du forum -->
-               <li><a href="#">Message 1 du forum</a></li>
-               <li><a href="#">Message 2 du forum</a></li>
-               <!-- Ajouter d'autres messages ici -->
-            </ul>
-            <a href="#forum">Voir plus</a>
-         </div>
-      </div>
-      &nbsp;
-
-
-      <div class="col-lg-4">
-         <div class="homeCardRight card">
-            <h2 class="text-center">Second-hand sales site </h2>
-            <ul class="boutique-products">
-               <!-- Inclure ici les produits en vedette de la boutique -->
-               <li><a href="#">Annonce 1</a></li>
-               <li><a href="#">Annonce 2</a></li>
-               <!-- Ajouter d'autres produits ici -->
-            </ul>
-            <a href="#boutique">Explorer la boutique</a>
-         </div>
-      </div>
-
-   </div>
+        </div>
+    </div>
 </div>
-
-

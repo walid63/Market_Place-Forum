@@ -1,51 +1,53 @@
 <?php
-
 require_once "./src/Models/User_model.php";
 require_once "./src/_lib/_view.php";
+require_once "./src/Models/Annonce_model.php";
+require_once "./src/Models/Post_model.php";
 
-//include "./src/Views/home/index.php";
 class HomeController
 {
-
     private $userModel;
     private $view;
+    private $annonceModel;
+    private $postModel;
 
     public function __construct()
     {
         $this->userModel = new User_model();
+        $this->annonceModel = new Annonce_model();
+        $this->postModel = new Post_model();
         $this->view = new View();
-        
     }
-
 
 
     public function index()
     {
- 
-        $nom = "test var";
-        $this->view->assign('nom', $nom);
+        $posts = $this->postModel->getAllPost();
+    
+        // Récupérer toutes les annonces à partir du modèle AnnounceModel
+        $announces = $this->annonceModel->getAllAnnounces();
+        $posts = $this->postModel->getAllPost();
+
+        foreach ($posts as $post)
+        {
+            $postAuthorId = $post->getAuthor_id();
+            $userPost = $this->postModel->getUserByPost($postAuthorId);
+        } 
+
+        foreach ($announces as $announce)
+        {
+            $annonceVendorId = $announce->getVendor_id();
+            $userAnnonce = $this->annonceModel->getUserByAnnonceId($annonceVendorId);
+        }
+       
+        $this->view->assign("userPost", $userPost);
+        $this->view->assign("userAnnonce", $userAnnonce);
+        $this->view->assign("posts", $posts);
+        $this->view->assign("annonces", $announces);
+
         $this->view->render("home","index");
+        $this->view->loadIncludes("footer");
       
     }
 
-
-    public function globalGetPostHomeForum()
-    {
-
-    }
-
-
-    
-    public function sidebar()
-    {
-        // Préparation des données spécifiques à la barre latérale
-
-        // ...
-
-        $loggedIn = false; // Variable indiquant si l'utilisateur est connecté
-        $forumDetails = 'Détails du forum'; // Détails du forum à afficher
-        $categories = ['Catégorie 1', 'Catégorie 2', 'Catégorie 3']; // Catégories de l'e-commerce
-
-   
-    }
 }

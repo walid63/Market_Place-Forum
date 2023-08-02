@@ -3,9 +3,6 @@
  
 
 require_once "./src/server/config.php";
-
- 
-
 class _connect
 {
     use DatabaseConfig;
@@ -24,7 +21,6 @@ class _connect
             echo 'Erreur de connexion à la base de données : ' . $e->getMessage();
         }
     }
-
     public static function getInstance()
     {
         if (!self::$instance) {
@@ -33,7 +29,6 @@ class _connect
 
         return self::$instance;
     }
-
     public function getConnection()
     {
         return $this->connection;

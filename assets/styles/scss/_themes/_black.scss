@@ -2,37 +2,118 @@ $spacer: 20px;
 
 body.blackTheme {
 
-    color: rgb(0, 0, 0);
+    .walletAlink
+    {
+        text-decoration: none;
+    }
 
+    input {
+        width: 100%;
+        padding: 8px;
+        border: 2px solid #41d4ff;
+        border-radius: 5px;
+        outline: none;
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #41d4ff;
+        transition: border-color 0.3s ease-in-out;
+
+        &::placeholder {
+            color: #41d4ff;
+            opacity: 1;
+        }
+
+        &:focus {
+            border-color: #41d4ff;
+        }
+    }
+
+    .blockErrorForms {
+        border-radius: 5px;
+    }
+
+    button.formBtn {
+        border-radius: 20px;
+        width: 150px;
+
+    }
+
+    .globalBtn {
+        background-color: #41d4ff;
+        border-radius: 20px;
+        width: 180px;
+        height: 45px;
+    }
+
+
+    color: rgb(0, 0, 0);
     background-color: #1a1f32;
     background-repeat: no-repeat;
 
-
-
     div.sidebar {
         background-color: #ffffff;
-        color: black;
-        border: solid black 0.2px;
+        color: #41d4ff;
         border-radius: 0.2px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: solid #41d4ff 0.2px;
+        border-radius: 0.5rem;
+
+        ul {
+
+
+            li {
+                color: #41d4ff;
+                background-color: rgba(26, 31, 50, 0.7);
+                border-radius: 0%;
+                //  background: radial-gradient(ellipse at center, #36aacd 0%, rgba(26, 31, 50, 0.7) 70%);
+            }
+        }
     }
 
+    //                                                                                                                                   //home cards
     div.homeCardLeft {
-        background-color: rgb(122, 122, 122);
+        background-color: rgba(26, 31, 50, 0.7);
+        border: solid #41d4ff 0.2px;
         color: white;
+        padding: 5px;
+
+        div.control-publication {
+            border-radius: 5px;
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: #41d4ff;
+            }
+        }
+
+        div {
+            margin: 5px;
+            border: solid #41d4ff 0.2px;
+            background-color: rgba(26, 31, 50, 0.7);
+            color: white;
+
+            .homeCardLeftText {
+                margin-left: 5px;
+            }
+        }
     }
 
     div.homeCardRight {
-        background-color: rgb(122, 122, 122);
+        border: solid #41d4ff 0.2px;
+        background-color: rgba(26, 31, 50, 0.7);
         color: white;
+
+        .homeCardLeftText {
+            margin-left: 5px;
+        }
     }
 
-
-    /*header*/
+    //  .homeCardLeftText                                                                                                                //header
     header {
         text-align: center;
         padding: $spacer $spacer * 2;
-        background-color: #f0f0f0;
-        color: #333;
+        background-color: #1a1f32;
+        color: #ffffff;
 
         h1 {
             margin-bottom: $spacer;
@@ -58,7 +139,7 @@ body.blackTheme {
         }
     }
 
-    /* Style pour le carrousel */
+    //                                                                                                                                      //carrousel
     .carousel {
         /* Vos styles pour le carrousel */
     }
@@ -93,7 +174,7 @@ body.blackTheme {
     }
 
     /* home section forum */
-
+    //footer
     /* footer */
     footer {
         background-color: #f0f0f0;
@@ -114,19 +195,30 @@ body.blackTheme {
         }
     }
 
-
     /* login */
-
+    //                                                                                                                                     //login
     .form-container {
         display: flex;
         justify-content: center;
         align-items: center;
         height: 100vh;
         margin: 15px;
-      }
-      
-      form.neon-form {
+
+    }
+
+    .loginBackground {
+        max-width: 100%;
+        height: auto;
+        margin-top: 150px;
+        border-radius: 25px;
+        box-shadow: -7px -7px 14px#36aacd;
+        border: solid 2px #007bff;
+
+    }
+
+    form.neon-form {
         background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: -30px -7px 14px#36aacd;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px #41d4ff;
@@ -134,24 +226,24 @@ body.blackTheme {
 
         overflow: hidden;
         width: 30rem;
-        margin: 0 auto; /* Pour centrer horizontalement le formulaire */
-      
+        margin: 0 auto;
+        // Pour centrer horizontalement le formulaire 
+
         @media screen and (min-width: 768px) {
-          width: 80%; /* Le formulaire occupera 80% de la largeur de l'écran sur les écrans de 768px et plus */
+            width: 80%;
+            // Le formulaire occupera 80% de la largeur de l'écran sur les écrans de 768px et plus 
         }
-      
-        
     }
 
     form::before,
     form::after {
         content: "";
-  
+
         width: 100%;
         height: 100%;
         top: 0;
         left: 0;
-       // background: radial-gradient(ellipse at center, #41d4ff 0%, rgba(26, 31, 50, 0.7) 70%);
+        // background: radial-gradient(ellipse at center, #41d4ff 0%, rgba(26, 31, 50, 0.7) 70%);
         mix-blend-mode: overlay;
         z-index: -1;
     }
@@ -201,12 +293,190 @@ body.blackTheme {
         }
 
 
-
     }
 
+    //                                                                                                                                  //profile page
+
+    div.profilePage {
+        background: radial-gradient(ellipse at center, #36aacd 0%, rgba(26, 31, 50, 0.7) 70%);
 
 
+        div.card-profile {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            color: #41d4ff;
+
+            img {
+                justify-content: center;
+            }
+
+            ul {
+                li {
+                    color: rgb(255, 255, 255);
+                }
+            }
+        }
+
+        .icon-box {
+            font-size: 30px;
+            margin-bottom: 33px;
+            display: inline-block;
+            color: #ffffff;
+            height: 65px;
+            width: 65px;
+            line-height: 65px;
+            background-color: #59b73f;
+            text-align: center;
+            border-radius: 0.3rem;
+        }
+
+        .social-icon-style2 li a {
+            display: inline-block;
+            font-size: 14px;
+            text-align: center;
+            color: #ffffff;
+            background: #59b73f;
+            height: 41px;
+            line-height: 41px;
+            width: 41px;
+        }
+
+        .rounded-3 {
+            border-radius: 0.3rem !important;
+        }
+
+        .social-icon-style2 {
+            margin-bottom: 0;
+            display: inline-block;
+            padding-left: 10px;
+            list-style: none;
+        }
+
+        .social-icon-style2 li {
+            vertical-align: middle;
+            display: inline-block;
+            margin-right: 5px;
+        }
+
+        a,
+        a:active,
+        a:focus {
+            color: #616161;
+            text-decoration: none;
+            transition-timing-function: ease-in-out;
+            -ms-transition-timing-function: ease-in-out;
+            -moz-transition-timing-function: ease-in-out;
+            -webkit-transition-timing-function: ease-in-out;
+            -o-transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            -ms-transition-duration: .2s;
+            -moz-transition-duration: .2s;
+            -webkit-transition-duration: .2s;
+            -o-transition-duration: .2s;
+        }
+
+        .text-secondary,
+        .text-secondary-hover:hover {
+            color: #59b73f !important;
+        }
+
+        .display-25 {
+            font-size: 1.4rem;
+        }
+
+        .text-primary,
+        .text-primary-hover:hover {
+            color: #ff712a !important;
+        }
+
+        p {
+            margin: 0 0 20px;
+        }
+
+        .mb-1-6,
+        .my-1-6 {
+            margin-bottom: 1.6rem;
+        }
+
+        .userDetails {
+            background-color: rgba(41, 37, 37, 0.1);
+            border: solid #41d4ff 5px;
+            color: #41d4ff;
+        }
+
+        .profileBoxPostCreate {
+            border: solid #41d4ff 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+
+            textarea {
+                background-color: #41d4ff;
+                border: solid #41d4ff 5px;
+                border-radius: 10px;
+
+            }
+
+        }
+
+        div.profileBoxUserAnnonce {
+            background-color: black;
+        }
+    }
+
+    //                                                                                                                                    edit profile     
+
+    div.editProfile {
+        background: radial-gradient(ellipse at center, #2b8aa8 0%, rgba(26, 31, 50, 0.7) 70%);
+        color: #41d4ff;
+
+        .cardUser {
+            background-color: rgba(255, 255, 255, 0.1);
+
+            div.btn-upload {}
+        }
+
+        .accountDetailCard {
+            background-color: rgba(255, 255, 255, 0.1);
 
 
+            input {
+                background-color: rgba(255, 255, 255, 0.1);
+                //  border: 2px solid #41d4ff;
+                color: #80d5ef;
+            }
+        }
+    }
+
+    //                                                                                                                                            wallet index page
+
+    div.walletHome {
+        div.blockTitle
+        {
+            border: solid #41d4ff 1px;
+            border-radius: 5px;
+            color: #80d5ef;
+            
+        }
+        div.blockMain
+        {
+            padding: 3%;
+            border: solid #41d4ff 1px;
+            border-radius: 5px;
+            color: #80d5ef;
+        }
+        
+    }
+
+    div.walletFormBlock{
+
+        color: #000000;
+        
+
+        .walletCreatorMain{
+            //background-color: black;
+            background: radial-gradient(ellipse at center, #36aacd 0%, rgba(26, 31, 50, 0.7) 70%);
+      
+        }
+    }
 
 }

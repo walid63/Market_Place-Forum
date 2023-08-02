@@ -1,18 +1,33 @@
 <?php
+
 require_once "./src/Views/includes/head.php";
 include "./vendor/autoload.php";
 
- // Définir une liste de routes avec les URL et les contrôleurs correspondants 
-
  $routes = [
     '/' => 'HomeController::index',
+    '/admin' => 'AdminController::index',
+    '/admin/panel' => 'AdminController::adminPanel',
     '/login' => 'LoginController::index',
-    '/register' => 'RegisterController::index'
+    '/register' => 'RegisterController::index',
+    '/logout' => 'LogoutController::index',
+    '/profile' => 'ProfileController::index',
+    '/profile/edit' => 'ProfileController::editProfile',
+    '/actuality' => 'ForumController::index',
+    '/annonce' => 'AnnonceController::index',
+    '/annonce/create' => 'AnnonceController::createAnnnonce',
+    '/annonce/list' => 'AnnonceController::getAnnonceUserLoggedIn',
+    '/annonce/me' => 'AnnonceController::getAnnonceUserLoggedIn',
+    '/annonce/detail' => 'AnnonceController::createAnnnonce',
+    '/category' => 'CategoryController::displayByCategory',
+    '/message' => 'MessageController::index',
+    '/wallet' => 'WalletController::index',
+    '/wallet/create' => 'WalletController::newWallet'
    
 ];
 
-
 $requestUrl = $_SERVER['REQUEST_URI'];
+
+ 
 
 // Extraire le chemin d'URL sans la chaîne de requête
 $parsedUrl = parse_url($requestUrl);
@@ -39,7 +54,7 @@ if (array_key_exists($path, $routes)) {
 } else {
     // Gérer la page non trouvée (404)
     echo 'Page not found';
-    dump($controller);
+  //dump($controller);
 }  ?>
 
 

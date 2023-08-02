@@ -1,13 +1,19 @@
 nav.navbar
 {
     padding-bottom: 20px;
+    background-color: #1a1f32;
+   
     div.navBlock
     {
-        background-color: rgb(94, 94, 94);
-        
+       // background-color: rgb(94, 94, 94);
+       .navSearch
+       {
+        width: 250px;
+       }
+       
         a.navbar-brand
         {
-            color: white;
+            color:  #41d4ff;
         }
 
         button.navbar-toggler
@@ -20,10 +26,20 @@ nav.navbar
             {
                 li.nav-item{
                     a.nav-link{
-                        color:white
+                        color:  #41d4ff;
                     }
                 }
             }
         }
     }
+
+    .textNav
+    {
+        color:  #41d4ff;
+    }
+}
+.navLine
+{
+    height: 5px;
+    background-color:  #41d4ff;
 }

@@ -1,6 +1,8 @@
 @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./_variables/black";
 @import "./_globals/home";
+@import "./_globals/header";
+@import "./_globals/footer";
 @import "./_components/navbar";
 @import "./_components/sidebar";
 @import "./_components/_form/login";

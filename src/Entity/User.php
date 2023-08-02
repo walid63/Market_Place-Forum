@@ -16,11 +16,12 @@ class User
     private $zipCode;
     private $isAdmin;
     private $isBanned;
+    private $role;
 
     private $status;
     private $createdAt;
 
-    public function __construct($firstname, $lastname, $username, $email, $password, $tel, $address, $city, $zipCode,$createdAt = null)
+    public function __construct($firstname, $lastname, $username, $email, $password, $tel, $address, $city, $zipCode,$role,$createdAt = null)
     {
         $this->firstname = $firstname;
         $this->lastname = $lastname;
@@ -31,6 +32,7 @@ class User
         $this->address = $address;
         $this->city = $city;
         $this->zipCode = $zipCode;
+        $this->role = $role;
 
         if ($createdAt === null) {
             $this->createdAt = date('Y-m-d H:i:s'); // Utilise la date et l'heure actuelles
@@ -306,6 +308,26 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of role
+     */ 
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * Set the value of role
+     *
+     * @return  self
+     */ 
+    public function setRole($role)
+    {
+        $this->role = $role;
 
         return $this;
     }

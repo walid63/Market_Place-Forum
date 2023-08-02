@@ -25,7 +25,7 @@ class User_model
 
     public function createUser(User $user)
     {
-        $query = "INSERT INTO users (firstname, lastname, username, adresse, ville, codepostal, telephone, email, password, isAdmin, isBanned, status)
+        $query = "INSERT INTO user (firstname, lastname, username, address, ville, code_postal, tel, email, password, is_admin, is_banned, status)
                   VALUES (:firstname, :lastname, :username, :adresse, :ville, :codepostal, :telephone, :email, :password, :isAdmin, :isBanned, :status)";
 
         // Préparer la requête
@@ -115,8 +115,8 @@ class User_model
                 $userData['tel'],
                 $userData['address'],
                 $userData['ville'],
-                $userData['code_postal']
-                //$userData['created_at']
+                $userData['code_postal'],
+                $userData['createdAt']
             );
 
             $user->setId($userData['id']);
@@ -237,5 +237,9 @@ class User_model
         } else {
             return false;
         }
-    }   
+    }  
+    
+    
+
+    
 }
